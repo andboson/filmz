@@ -1,0 +1,3 @@
+andboson_filmz_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: AndbosonFilmzBundle:Default:index }
