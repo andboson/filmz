@@ -1,0 +1,39 @@
+films:
+    pattern:  /
+    defaults: { _controller: "AndbosonFilmzBundle:Film:index" }
+
+films_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AndbosonFilmzBundle:Film:show" }
+
+films_new:
+    pattern:  /new
+    defaults: { _controller: "AndbosonFilmzBundle:Film:new" }
+
+films_create:
+    pattern:  /create
+    defaults: { _controller: "AndbosonFilmzBundle:Film:create" }
+    requirements: { _method: post }
+
+films_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AndbosonFilmzBundle:Film:edit" }
+
+films_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AndbosonFilmzBundle:Film:update" }
+    requirements: { _method: post|put }
+
+films_category:
+    pattern:  /category/{id}/
+    defaults: { _controller: "AndbosonFilmzBundle:Film:showCategory" }
+
+films_category_genre:
+    pattern:  /category/{id}/genre/{gid}
+    defaults: { _controller: "AndbosonFilmzBundle:Film:showCategoryGenre" }
+
+films_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AndbosonFilmzBundle:Film:delete" }
+    requirements: { _method: post|delete }
+

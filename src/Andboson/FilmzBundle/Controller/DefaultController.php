@@ -2,14 +2,16 @@
 
 namespace Andboson\FilmzBundle\Controller;
 
+use Andboson\FilmzBundle\Entity\Comments;
 use Andboson\FilmzBundle\Entity\Genre;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Andboson\FilmzBundle\Entity\Category;
 use Andboson\FilmzBundle\Entity\Film;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 class DefaultController extends Controller
 {
-    public function indexAction($name)
+    public function indexAction()
     {
 
         $genre = new Genre();
@@ -30,10 +32,22 @@ class DefaultController extends Controller
         $film->setCategory($category);
         $film->addGenre($genre);
 
+
+        $comment = new Comments();
+        $comment->setMessage('comment');
+        $comment->setAuthorEmail('test@tes.com');
+        $comment->setAuthorIp('127.0.0.1');
+        $comment->setDateAdded(new \DateTime('now'));
+        $comment->setAuthorName('Vasya');
+       $comment->setFilm( $film );
+
+        $film->addComment($comment);
+
         $em = $this->getDoctrine()->getManager();
         $em->persist($category);
         $em->persist($film);
         $em->persist($genre);
+        $em->persist($comment);
         $em->flush();
 
         return $this->render('AndbosonFilmzBundle:Default:index.html.twig', array('name' => $name));

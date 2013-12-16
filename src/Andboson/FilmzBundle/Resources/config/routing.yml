@@ -1,3 +1,22 @@
 andboson_filmz_homepage:
-    pattern:  /hello/{name}
+    pattern:  /films
     defaults: { _controller: AndbosonFilmzBundle:Default:index }
+
+
+AndbosonFilmzBundle_films_list:
+    resource: "@AndbosonFilmzBundle/Resources/config/routing/film.yml"
+    prefix:   /films
+
+AndbosonFilmzBundle_cat:
+      resource: "@AndbosonFilmzBundle/Resources/config/routing/category.yml"
+      prefix:   /cat
+
+AndbosonFilmzBundle_genre:
+        resource: "@AndbosonFilmzBundle/Resources/config/routing/genre.yml"
+        prefix:   /genre
+
+AndbosonFilmzBundle_comment:
+        resource: "@AndbosonFilmzBundle/Resources/config/routing/comments.yml"
+        prefix:   /comment
+
+

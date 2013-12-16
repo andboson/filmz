@@ -1,0 +1,30 @@
+cat:
+    pattern:  /
+    defaults: { _controller: "AndbosonFilmzBundle:Category:index" }
+
+cat_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AndbosonFilmzBundle:Category:show" }
+
+cat_new:
+    pattern:  /new
+    defaults: { _controller: "AndbosonFilmzBundle:Category:new" }
+
+cat_create:
+    pattern:  /create
+    defaults: { _controller: "AndbosonFilmzBundle:Category:create" }
+    requirements: { _method: post }
+
+cat_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AndbosonFilmzBundle:Category:edit" }
+
+cat_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AndbosonFilmzBundle:Category:update" }
+    requirements: { _method: post|put }
+
+cat_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AndbosonFilmzBundle:Category:delete" }
+    requirements: { _method: post|delete }

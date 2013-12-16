@@ -1,0 +1,30 @@
+comment:
+    pattern:  /
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:index" }
+
+comment_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:show" }
+
+comment_new:
+    pattern:  /new
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:new" }
+
+comment_create:
+    pattern:  /create
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:create" }
+    requirements: { _method: post }
+
+comment_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:edit" }
+
+comment_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:update" }
+    requirements: { _method: post|put }
+
+comment_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AndbosonFilmzBundle:Comments:delete" }
+    requirements: { _method: post|delete }
