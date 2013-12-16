@@ -3,32 +3,21 @@
 {% block body -%}
     <h1>Film list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Director</th>
-                <th>Poster</th>
-                <th>Description</th>
-                <th>Rating</th>
-                <th>Releasedate</th>
-                <th>Link</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+    <div class="records_list">
         {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('films_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
+            <div class="film">
+                <a href="{{ path('films_show', { 'id': entity.id }) }}">
+                    <img width="200" src="{{ entity.poster }}" alt="{{ entity.name }}"/>
+                    <p>{{ entity.name }}{{ entity.rating }}</p>
+
+                </a>
+                {#<td>{{ entity.name }}</td>
                 <td>{{ entity.director }}</td>
                 <td>{{ entity.poster }}</td>
                 <td>{{ entity.description }}</td>
                 <td>{{ entity.rating }}</td>
                 <td>{% if entity.releaseDate %}{{ entity.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.link }}</td>
-                <td>
+                <td>{{ entity.link }}</td>#}
                 <ul>
                     <li>
                         <a href="{{ path('films_show', { 'id': entity.id }) }}">show</a>
@@ -38,10 +27,9 @@
                     </li>
                 </ul>
                 </td>
-            </tr>
+            </div>
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
 
         <ul>
         <li>

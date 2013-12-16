@@ -3,6 +3,7 @@
 {% block body -%}
     <h1>Film</h1>
 
+    <div style="float: left;"><img src="{{ entity.poster }}" alt=""/></div>
     <table class="record_properties">
         <tbody>
             <tr>
@@ -16,10 +17,6 @@
             <tr>
                 <th>Director</th>
                 <td>{{ entity.director }}</td>
-            </tr>
-            <tr>
-                <th>Poster</th>
-                <td>{{ entity.poster }}</td>
             </tr>
             <tr>
                 <th>Description</th>

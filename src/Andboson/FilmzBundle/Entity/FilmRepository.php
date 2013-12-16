@@ -33,14 +33,18 @@ class FilmRepository extends EntityRepository
     public function findByCategoryIdAndGenreId($id, $gid)
     {
 
+ /*       $query = $this->getEntityManager()
+            ->createQuery('
+            SELECT f FROM AndbosonFilmzBundle:Film f
+            WHERE f.category = :id AND f.genre LIKE :gid'
+            )->setParameters(Array('id' => $id, 'gid' => $gid ));*/
+
         $query = $this->getEntityManager()
             ->createQuery('
             SELECT f FROM AndbosonFilmzBundle:Film f
-            WHERE f.category = :id 
-            AND f.genre = :gid'
-            )->setParameter('id', $id )
-            ->setParameter('gid', $gid );
-
+            JOIN f.genre g
+            WHERE g.id = :gid AND f.category = :id'
+            )->setParameters(Array('id' => $id, 'gid' => $gid ));
         try {
             return $query->getArrayResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
