@@ -4,6 +4,7 @@ namespace Andboson\FilmzBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Film
@@ -90,6 +91,11 @@ class Film
      */
     private $link;
 
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
     /**
      * Get id
      *
@@ -362,14 +368,30 @@ class Film
         $this->comments->removeElement($comments);
     }
 
+
+    /**
+     * Get genre
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGenre()
+    {
+
+        return $this->genre;
+    }
     /**
      * Get genre
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGenre()
+    public function getGenreString()
     {
-        return $this->genre;
+        $genreList = '';
+
+        foreach( $this->genre as $genre ){
+            $genreList .= $genre->getName();
+        }
+        return $genreList;
     }
 
     function __toString()

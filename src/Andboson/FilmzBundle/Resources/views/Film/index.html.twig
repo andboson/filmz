@@ -1,6 +1,6 @@
-{% extends '::base.html.twig' %}
+{% extends 'AndbosonFilmzBundle::layout.html.twig' %}
 
-{% block body -%}
+{% block content %}
     <h1>Film list</h1>
 
     <div class="records_list">
@@ -11,31 +11,12 @@
                     <p>{{ entity.name }}{{ entity.rating }}</p>
 
                 </a>
-                {#<td>{{ entity.name }}</td>
-                <td>{{ entity.director }}</td>
-                <td>{{ entity.poster }}</td>
-                <td>{{ entity.description }}</td>
-                <td>{{ entity.rating }}</td>
-                <td>{% if entity.releaseDate %}{{ entity.releaseDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.link }}</td>#}
-                <ul>
-                    <li>
-                        <a href="{{ path('films_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('films_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
                 </td>
             </div>
         {% endfor %}
     </div>
-
-        <ul>
-        <li>
-            <a href="{{ path('films_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
     {% endblock %}
+
+{% block admin %}
+    {{ parent() }}
+{% endblock %}

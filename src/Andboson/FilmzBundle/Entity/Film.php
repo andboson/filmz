@@ -4,6 +4,7 @@ namespace Andboson\FilmzBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Film
@@ -90,6 +91,11 @@ class Film
      */
     private $link;
 
+    /**
+     * @Gedmo\Slug(fields={"name"})
+     * @ORM\Column(length=128, unique=true)
+     */
+    private $slug;
     /**
      * Get id
      *
@@ -396,4 +402,27 @@ class Film
 
 
 
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Film
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+    
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
 }

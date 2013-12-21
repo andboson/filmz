@@ -1,45 +1,39 @@
-{% extends '::base.html.twig' %}
+{% extends 'AndbosonFilmzBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Film</h1>
+{% block title %}{{ parent() }}::{{ entity.name }}{% endblock %}
 
-    <div style="float: left;"><img src="{{ entity.poster }}" alt=""/></div>
+{% block content %}
+    <h1>{{ entity.name }}</h1>
+
+    <div class="img-film"><img src="{{ entity.poster }}" alt="{{ entity.name }}"/></div>
     <table class="record_properties">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ entity.name }}</td>
-            </tr>
-            <tr>
-                <th>Director</th>
+                <th>Режиссер:</th>
                 <td>{{ entity.director }}</td>
             </tr>
             <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
+                <th>Рейтинг:</th>
+                <td>
+                    {% for i in 0..entity.rating %}
+                        <img src="http://www.jerrywickey.com/images/custar.jpg" alt="{{ i }}"/>
+                    {% endfor %}
+                </td>
             </tr>
             <tr>
-                <th>Rating</th>
-                <td>{{ entity.rating }}</td>
+                <th>Дата выхода:</th>
+                <td>{{ entity.releaseDate|date('d/m/Y') }}</td>
             </tr>
             <tr>
-                <th>Releasedate</th>
-                <td>{{ entity.releaseDate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Link</th>
+                <th>Ссылка:</th>
                 <td>{{ entity.link }}</td>
             </tr>
             <tr>
-                <th>Category</th>
+                <th>Сатегория:</th>
                 <td><a href="{{ path('films_category', {'id': entity.category.getId()}) }}">{{entity.category}}</a></td>
             </tr>
             <tr>
-                <th>Genre</th>
+                <th>Жанр:</th>
                 <td>
                     {% for genre in entity.genre %}
                         <a href="{{ path('films_category_genre', {'id': entity.category.getId(), 'gid': genre.getId() }) }}">{{genre.getName()}}</a>
@@ -48,48 +42,77 @@
             </tr>
         </tbody>
     </table>
+    <div class="description">
+        <h3>Описание</h3>
+        <p>{{ entity.description }}</p>
+    </div>
+
     {% if comments %}
-    <table class="records_list">
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Authorname</th>
-            <th>Authoremail</th>
-            <th>Authorip</th>
-            <th>Dateadded</th>
-            <th>Message</th>
-            <th>Rate</th>
-        </tr>
-        </thead>
+        <h4>Комментарии</h4>
+    <table class="comments_list">
         <tbody>
         {% for comment in comments %}
+            <tr class="comment-head">
+                <td class="comment-head-left"><small><sup>{% if comment.dateAdded %}{{ comment.dateAdded|date('m/d H:i') }}{% endif %}</small></sup>
+                    {{ comment.authorName }}</td>
+                <td class="comment-head-right">
+                    {% for i in 0..comment.rate %}
+                        <img src="http://www.jerrywickey.com/images/custar.jpg" alt="{{ i }}"/>
+                    {% endfor %}
+                </td>
+
+            </tr>
             <tr>
-                <td><a href="{{ path('comment_show', { 'id': comment.id }) }}">{{ comment.id }}</a></td>
-                <td>{{ comment.authorName }}</td>
-                <td>{{ comment.authorEmail }}</td>
-                <td>{{ comment.authorIp }}</td>
-                <td>{% if comment.dateAdded %}{{ comment.dateAdded|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ comment.message }}</td>
-                <td>{{ comment.rate }}</td>
+                <td colspan="2"><blockquote class="content-quote">{{ comment.message }}</blockquote></td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
     {% endif %}
-    <h1>Comments creation</h1>
+   <div class="createcommet">
+    <h2>Добавить комментарий</h2>
+    {{ form_start(formComment, { 'attr': {'class': 'pure-form'} }) }}
+    {{ form_errors(formComment) }}
 
-    {{ form(formComment) }}
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('films') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('films_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <p>
+        Оценка фильма:
+        {{ form_errors(formComment.rate) }}
+        {{ form_widget(formComment.rate) }}
+    </p>
+    <span>
+        {{ form_errors(formComment.authorName) }}
+        {{ form_widget(formComment.authorName) }}
+    </span>
+    <span>
+        {{ form_errors(formComment.authorEmail) }}
+        {{ form_widget(formComment.authorEmail) }}
+    </span>
+<p>
+   <div>
+       {{ form_errors(formComment.message) }}
+       {{ form_widget(formComment.message) }}
+   </div>
+</p>
+    <div>
+        {{ form_widget(formComment.film) }}
+    </div>
+    {{ form_widget(formComment.submit, {'label' : 'Добавить', 'attr' : {'class' : 'pure-button pure-button-primary'}}) }}
+    {{ form_end(formComment) }}
+   </div>
 {% endblock %}
+
+{% block admin %}
+    {{ parent() }}
+    <li><hr/></li>
+        <li>
+            <a href="{{ path('films_edit', { 'id': entity.id }) }}">
+                Редактировать
+            </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            {{ form_widget(delete_form.submit, {'label' : 'Удалить', 'attr' : {'class' : 'pure-button pure-button-primary'}}) }}
+            {{ form_end(delete_form) }}
+        </li>
+{% endblock %}
+

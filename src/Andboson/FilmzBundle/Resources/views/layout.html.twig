@@ -1,0 +1,62 @@
+{% extends "AndbosonFilmzBundle::base.html.twig" %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ asset('/bundles/andbosonfilmz/css/layouts/side-menu.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+    <div id="layout">
+        <!-- Menu toggle -->
+        <a href="#menu" id="menuLink" class="menu-link">
+            <!-- Hamburger icon -->
+            <span></span>
+        </a>
+
+        <div id="menu">
+            <div class="pure-menu pure-menu-open">
+                <a class="pure-menu-heading" href="/">Filmz</a>
+                <ul>
+                {% block menu %}
+                {{ render(controller('AndbosonFilmzBundle:Category:list')) }}
+                    {#<li><a href="http://purecss.io/base/">Base</a></li>#}
+                {% endblock %}
+                </ul>
+                <ul>
+                {% block admin %}
+                    <li><a href="{{ path('films_new') }}">Добавить фильм</a></li>
+                    <li><a href="{{ path('cat_new') }}">Добавить категорию</a></li>
+                    <li><a href="{{ path('genre_new') }}">Добавить жанр</a></li>
+                {% endblock %}
+                </ul>
+            </div>
+        </div>
+
+        <div id="main">
+            <div class="header">
+                <h1>Filmz</h1>
+                <h2>A films catalog</h2>
+            </div>
+
+            <div class="content">
+                {#<h2 class="content-subhead">How to use this layout</h2>
+                <p>
+                    To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
+                </p>#}
+                {% for flashMessage in app.session.flashbag.get('notice') %}
+                    <div class="flash-message">
+                        <em>Notice</em>: {{ flashMessage }}
+                    </div>
+                {% endfor %}
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% if code is defined %}
+        <h2>Code behind this page</h2>
+        <div class="block">
+            <div class="symfony-content">{{ code|raw }}</div>
+        </div>
+    {% endif %}
+{% endblock %}

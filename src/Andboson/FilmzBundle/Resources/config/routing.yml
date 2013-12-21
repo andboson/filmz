@@ -1,11 +1,6 @@
-andboson_filmz_homepage:
-    pattern:  /films
-    defaults: { _controller: AndbosonFilmzBundle:Default:index }
-
-
 AndbosonFilmzBundle_films_list:
     resource: "@AndbosonFilmzBundle/Resources/config/routing/film.yml"
-    prefix:   /films
+    prefix:   /
 
 AndbosonFilmzBundle_cat:
       resource: "@AndbosonFilmzBundle/Resources/config/routing/category.yml"

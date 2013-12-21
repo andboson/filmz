@@ -1,3 +1,7 @@
+andboson_rate:
+    resource: "@AndbosonRateBundle/Resources/config/routing.xml"
+    prefix:   /
+
 andboson_filmz:
     resource: "@AndbosonFilmzBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,9 @@
+{% block rate_widget %}
+    <input type="hidden" {{ block('widget_attributes') }} value="1">
+    {% spaceless %}
+        {% for child in form %}
+            <img src="http://www.jerrywickey.com/images/unstar.jpg" onclick="rateCommit({{ child.vars.value }})" onmouseover="rateHover({{ child.vars.value }})" id="img{{ child.vars.value }}" onmouseout="rateHoverOut({{ child.vars.value }})">
+        {% endfor %}
+    {% endspaceless %}
+    <script src="{{ asset('/bundles/andbosonrate/js/widgets.js') }}"></script>
+{% endblock %}

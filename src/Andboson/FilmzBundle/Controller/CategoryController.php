@@ -29,6 +29,21 @@ class CategoryController extends Controller
             'entities' => $entities,
         ));
     }
+
+    /**
+     * Lists all Category entities in menu.
+     *
+     */
+    public function listAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entities = $em->getRepository('AndbosonFilmzBundle:Category')->findAll();
+
+        return $this->render('AndbosonFilmzBundle:Category:list.html.twig', array(
+            'entities' => $entities,
+        ));
+    }
     /**
      * Creates a new Category entity.
      *

@@ -1,0 +1,3 @@
+{% for entity in entities %}
+        <li><a href="{{ path('films_category', { 'id': entity.id }) }}">{{ entity.name }}</a></li>
+{% endfor %}
