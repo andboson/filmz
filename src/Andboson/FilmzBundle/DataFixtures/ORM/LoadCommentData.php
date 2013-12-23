@@ -34,6 +34,16 @@ class LoadCommentsData extends AbstractFixture implements OrderedFixtureInterfac
         $comment->setFilm($this->getReference('film'));
         $manager->persist($comment);
         $manager->flush();
+
+        $comment = new Comments();
+        $comment->setAuthorName('ваня');
+        $comment->setAuthorEmail('drew@google.com');
+        $comment->setAuthorIp('127.0.0.1');
+        $comment->setMessage('Бессмертные...');
+        $comment->setRate(4);
+        $comment->setFilm($this->getReference('concert'));
+        $manager->persist($comment);
+        $manager->flush();
     }
 
     /**

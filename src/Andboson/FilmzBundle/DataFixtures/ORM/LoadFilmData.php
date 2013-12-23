@@ -76,6 +76,24 @@ class LoadFilmData extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($film);
         $this->addReference('film', $film);
         $manager->flush();
+
+
+        $film = new Film();
+        $film->setName('Queen - Live At Wembley Stadium ');
+        $film->setReleaseDate( new \DateTime('1986-08-01') );
+        $film->setPoster('
+        http://s10.dotua.org/fsua_items/cover/00/14/12/10/00141246.jpg');
+        $film->setDescription('Этот грандиозный бесплатный концерт, прошедший на лондонском Уэмбли 12 июля 1986 года, можно назвать ярчайшим концертным выступлением группы за всё время её существования.
+Мощные хард-рок композиции сменяют нежные акустические баллады, вслед за песнями Элвиса Пресли стадион сотрясают рок-гимны. Бесподобный голос Фредди Меркьюри берёт за душу и не отпускает её до самого конца выступления.
+За 2 дня стадион посетило 160 тыс. человек.');
+        $film->setLink('http://brb.to/video/concerts/i3UtK5TMEyO7e8MrzLvJO1i-live-at-wembley-stadium.html');
+        $film->setDirector('Queen');
+        $film->setRating('1');
+        $film->setCategory($this->getReference('catConcert'));
+        $film->addGenre($this->getReference('genreRock'));
+        $manager->persist($film);
+        $this->addReference('concert', $film);
+        $manager->flush();
     }
 
     /**

@@ -13,13 +13,15 @@ class FilmRatingUpdater
     {
         $entity = $args->getEntity();
         $entityManager = $args->getEntityManager();
-        $film = $entityManager->getRepository('AndbosonFilmzBundle:Film')->find( $entity->getFilm() );
+
 
 
 
         // perhaps you only want to act on some "Product" entity
         if ($entity instanceof Comments) {
 
+            $film = $entityManager->getRepository('AndbosonFilmzBundle:Film')->find( $entity->getFilm() );
+            
             $query = $entityManager
                 ->createQuery('
             SELECT c FROM AndbosonFilmzBundle:Comments c

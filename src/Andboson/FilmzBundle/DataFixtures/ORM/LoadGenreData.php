@@ -43,6 +43,13 @@ class LoadGenreData extends AbstractFixture implements OrderedFixtureInterface
 
         $this->addReference('genreScifi', $genre);
 
+        $genre = new Genre();
+        $genre->setName('Рок');
+        $genre->setSlug('rock');
+        $manager->persist($genre);
+
+        $this->addReference('genreRock', $genre);
+
         $manager->flush();
     }
 
