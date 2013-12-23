@@ -96,6 +96,20 @@ class Film
      * @ORM\Column(length=128, unique=true)
      */
     private $slug;
+
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created", type="datetime")
+     */
+    private $created;
+
+    /**
+     * @ORM\Column(name="updated", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated;
+    
     /**
      * Get id
      *

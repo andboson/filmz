@@ -3,7 +3,7 @@ films:
     defaults: { _controller: "AndbosonFilmzBundle:Film:index" }
 
 films_show:
-    pattern:  /{id}/show
+    pattern:  /show/{slug}
     defaults: { _controller: "AndbosonFilmzBundle:Film:show" }
 
 films_new:
@@ -25,11 +25,11 @@ films_update:
     requirements: { _method: post|put }
 
 films_category:
-    pattern:  /category/{id}/
+    pattern:  /category/{slug}/
     defaults: { _controller: "AndbosonFilmzBundle:Film:showCategory" }
 
 films_category_genre:
-    pattern:  /category/{id}/genre/{gid}
+    pattern:  /category/{slug}/genre/{gslug}
     defaults: { _controller: "AndbosonFilmzBundle:Film:showCategoryGenre" }
 
 films_delete:

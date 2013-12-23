@@ -1,16 +1,21 @@
 {% extends 'AndbosonFilmzBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Film list</h1>
+    <h3> {% if category is defined %}Фильмы в категории {{ category.name }}{% endif %}</h3>
 
     <div class="records_list">
         {% for entity in entities %}
             <div class="film">
-                <a href="{{ path('films_show', { 'id': entity.id }) }}">
+                <a href="{{ path('films_show', { 'slug': entity.slug }) }}">
                     <img width="200" src="{{ entity.poster }}" alt="{{ entity.name }}"/>
-                    <p>{{ entity.name }}{{ entity.rating }}</p>
-
+                    <p>{{ entity.name }}</p>
                 </a>
+                        {% for i in 1..entity.rating %}
+                            <img width="15" src="http://www.jerrywickey.com/images/custar.jpg" alt="{{ i }}"/>
+                        {% endfor %}
+                    </p>
+
+
                 </td>
             </div>
         {% endfor %}
@@ -20,3 +25,8 @@
 {% block admin %}
     {{ parent() }}
 {% endblock %}
+{% if category is defined %}
+    {% set menu_selected = category.slug %}
+{% else %}
+  {% set menu_selected = '' %}
+{% endif %}

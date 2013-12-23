@@ -18,7 +18,7 @@
                 <a class="pure-menu-heading" href="/">Filmz</a>
                 <ul>
                 {% block menu %}
-                {{ render(controller('AndbosonFilmzBundle:Category:list')) }}
+                {{ render(controller('AndbosonFilmzBundle:Category:list', { 'selected': menu_selected })) }}
                     {#<li><a href="http://purecss.io/base/">Base</a></li>#}
                 {% endblock %}
                 </ul>

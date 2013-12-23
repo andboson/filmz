@@ -146,6 +146,7 @@ class GenreController extends Controller
             'method' => 'PUT',
         ));
 
+        $form->add('slug', 'text', array('label' => 'slug'));
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;

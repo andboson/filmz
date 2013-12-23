@@ -36,14 +36,16 @@ class FilmController extends Controller
      * Lists all Film entities in Category.
      *
      */
-    public function showCategoryAction($id)
+    public function showCategoryAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AndbosonFilmzBundle:Film')->findByCategoryId($id);
+        $entities = $em->getRepository('AndbosonFilmzBundle:Film')->findByCategorySlag($slug);
+        $category = $em->getRepository('AndbosonFilmzBundle:Category')->findBySlug( $slug );
 
         return $this->render('AndbosonFilmzBundle:Film:index.html.twig', array(
             'entities' => $entities,
+            'category' => $category,
         ));
     }
 
@@ -51,14 +53,16 @@ class FilmController extends Controller
      * Lists all Film entities in with this Genre in Category.
      *
      */
-    public function showCategoryGenreAction($id, $gid )
+    public function showCategoryGenreAction($slug, $gslug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('AndbosonFilmzBundle:Film')->findByCategoryIdAndGenreId($id, $gid);
+        $entities = $em->getRepository('AndbosonFilmzBundle:Film')->findByCategorySlugAndGenreSlug($slug, $gslug);
+        $category = $em->getRepository('AndbosonFilmzBundle:Category')->findBySlug( $slug );
 
         return $this->render('AndbosonFilmzBundle:Film:index.html.twig', array(
             'entities' => $entities,
+            'category' => $category,
         ));
     }
 
@@ -144,23 +148,24 @@ class FilmController extends Controller
      * Finds and displays a Film entity.
      *
      */
-    public function showAction($id)
+    public function showAction($slug)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('AndbosonFilmzBundle:Film')->find($id);
-        $comments = $em->getRepository('AndbosonFilmzBundle:Comments')->findFilmId($id);
-
+        $entity = $em->getRepository('AndbosonFilmzBundle:Film')->findBySlug($slug);
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Film entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $comments = $em->getRepository('AndbosonFilmzBundle:Comments')->findFilmId($entity->getId());
+
+
+        $deleteForm = $this->createDeleteForm($entity->getId());
 
         $entityComment = new Comments();
         $entityComment->setFilm( $entity );
 
-        $formComment   = $this->createCreateFormComment($entityComment, $id);
+        $formComment   = $this->createCreateFormComment($entityComment, $entity->getId());
 
 
         return $this->render('AndbosonFilmzBundle:Film:show.html.twig', array(
@@ -209,6 +214,7 @@ class FilmController extends Controller
             'method' => 'PUT',
         ));
 
+        $form->add('slug', 'text', array('label' => 'slug'));
         $form->add('submit', 'submit', array('label' => 'Update'));
 
         return $form;

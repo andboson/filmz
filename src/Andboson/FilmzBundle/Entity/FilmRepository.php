@@ -13,14 +13,31 @@ use Doctrine\ORM\EntityRepository;
 class FilmRepository extends EntityRepository
 {
 
-    public function findByCategoryId($id)
+    public function findBySlug($slug)
     {
 
         $query = $this->getEntityManager()
             ->createQuery('
             SELECT f FROM AndbosonFilmzBundle:Film f
-            WHERE f.category = :id'
-            )->setParameter('id', $id );
+            WHERE f.slug = :slug'
+            )->setParameter('slug', $slug );
+
+        try {
+            return $query->getSingleResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
+
+    public function findByCategorySlag($slug)
+    {
+
+        $query = $this->getEntityManager()
+            ->createQuery('
+            SELECT f FROM AndbosonFilmzBundle:Film f
+            JOIN f.category c
+            WHERE c.slug = :slug'
+            )->setParameter('slug', $slug );
 
         try {
             return $query->getArrayResult();
@@ -30,21 +47,15 @@ class FilmRepository extends EntityRepository
     }
 
 
-    public function findByCategoryIdAndGenreId($id, $gid)
+    public function findByCategorySlugAndGenreSlug($slug, $gslug)
     {
-
- /*       $query = $this->getEntityManager()
-            ->createQuery('
-            SELECT f FROM AndbosonFilmzBundle:Film f
-            WHERE f.category = :id AND f.genre LIKE :gid'
-            )->setParameters(Array('id' => $id, 'gid' => $gid ));*/
-
         $query = $this->getEntityManager()
             ->createQuery('
             SELECT f FROM AndbosonFilmzBundle:Film f
             JOIN f.genre g
-            WHERE g.id = :gid AND f.category = :id'
-            )->setParameters(Array('id' => $id, 'gid' => $gid ));
+            JOIN f.category c
+            WHERE g.slug = :gslug AND c.slug = :slug'
+            )->setParameters(Array('slug' => $slug, 'gslug' => $gslug ));
         try {
             return $query->getArrayResult();
         } catch (\Doctrine\ORM\NoResultException $e) {

@@ -1,3 +1,4 @@
 {% for entity in entities %}
-        <li><a href="{{ path('films_category', { 'id': entity.id }) }}">{{ entity.name }}</a></li>
+        <li {% if entity.slug == selected %}class="pure-menu-selected"{% endif %} >
+                <a href="{{ path('films_category', { 'slug': entity.slug }) }}">{{ entity.name }}</a></li>
 {% endfor %}

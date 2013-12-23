@@ -5,7 +5,7 @@
 {% block content %}
     <h1>{{ entity.name }}</h1>
 
-    <div class="img-film"><img src="{{ entity.poster }}" alt="{{ entity.name }}"/></div>
+    <div class="img-film"><img width="300" src="{{ entity.poster }}" alt="{{ entity.name }}"/></div>
     <table class="record_properties">
         <tbody>
             <tr>
@@ -15,7 +15,7 @@
             <tr>
                 <th>Рейтинг:</th>
                 <td>
-                    {% for i in 0..entity.rating %}
+                    {% for i in 1..entity.rating %}
                         <img src="http://www.jerrywickey.com/images/custar.jpg" alt="{{ i }}"/>
                     {% endfor %}
                 </td>
@@ -26,17 +26,17 @@
             </tr>
             <tr>
                 <th>Ссылка:</th>
-                <td>{{ entity.link }}</td>
+                <td><a href="{{ entity.link }}">{{ entity.link }}</a></td>
             </tr>
             <tr>
-                <th>Сатегория:</th>
-                <td><a href="{{ path('films_category', {'id': entity.category.getId()}) }}">{{entity.category}}</a></td>
+                <th>Категория:</th>
+                <td><a href="{{ path('films_category', {'slug': entity.category.getSlug()}) }}">{{entity.category}}</a></td>
             </tr>
             <tr>
                 <th>Жанр:</th>
                 <td>
                     {% for genre in entity.genre %}
-                        <a href="{{ path('films_category_genre', {'id': entity.category.getId(), 'gid': genre.getId() }) }}">{{genre.getName()}}</a>
+                        <a href="{{ path('films_category_genre', {'slug': entity.category.getSlug(), 'gslug': genre.getSlug() }) }}">{{genre.getName()}}</a>
                     {% endfor %}
                     </td>
             </tr>
@@ -56,7 +56,7 @@
                 <td class="comment-head-left"><small><sup>{% if comment.dateAdded %}{{ comment.dateAdded|date('m/d H:i') }}{% endif %}</small></sup>
                     {{ comment.authorName }}</td>
                 <td class="comment-head-right">
-                    {% for i in 0..comment.rate %}
+                    {% for i in 1..comment.rate %}
                         <img src="http://www.jerrywickey.com/images/custar.jpg" alt="{{ i }}"/>
                     {% endfor %}
                 </td>

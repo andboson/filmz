@@ -34,7 +34,7 @@ class CategoryController extends Controller
      * Lists all Category entities in menu.
      *
      */
-    public function listAction()
+    public function listAction( $selected )
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -42,6 +42,7 @@ class CategoryController extends Controller
 
         return $this->render('AndbosonFilmzBundle:Category:list.html.twig', array(
             'entities' => $entities,
+            'selected' => $selected,
         ));
     }
     /**
@@ -161,8 +162,9 @@ class CategoryController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
 
+        $form->add('slug', 'text', array('label' => 'slug'));
+        $form->add('submit', 'submit', array('label' => 'Update'));
         return $form;
     }
     /**
