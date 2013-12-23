@@ -35,6 +35,9 @@ class CommentsController extends Controller
      */
     public function createAction(Request $request)
     {
+
+
+
         $entity = new Comments();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
@@ -46,8 +49,11 @@ class CommentsController extends Controller
 
             $film_id = $request->get('film_id');
 
+            $em = $this->getDoctrine()->getManager();
+            $film = $em->getRepository('AndbosonFilmzBundle:Film')->find( $film_id );
+
             if( $film_id ){
-                return $this->redirect($this->generateUrl('films_show', array('id' => $film_id)));
+                return $this->redirect($this->generateUrl('films_show', array('slug' => $film->getSlug() )));
             }
             return $this->redirect($this->generateUrl('comment_show', array('id' => $entity->getId())));
         }
