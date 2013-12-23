@@ -21,7 +21,7 @@ class FilmRatingUpdater
         if ($entity instanceof Comments) {
 
             $film = $entityManager->getRepository('AndbosonFilmzBundle:Film')->find( $entity->getFilm() );
-            
+
             $query = $entityManager
                 ->createQuery('
             SELECT c FROM AndbosonFilmzBundle:Comments c

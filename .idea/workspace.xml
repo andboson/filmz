@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4b2b1e67-e58b-4c9d-bd91-ecec42557f7f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Andboson/FilmzBundle/EventListener/FilmRatingUpdater.php" afterPath="$PROJECT_DIR$/src/Andboson/FilmzBundle/EventListener/FilmRatingUpdater.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadCommentData.php" afterPath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadCommentData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadFilmData.php" afterPath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadFilmData.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadGenreData.php" afterPath="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadGenreData.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css" afterPath="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css" />
     </list>
     <ignored path="filmz.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -133,10 +131,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FilmRatingUpdater.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FilmRatingUpdater.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/EventListener/FilmRatingUpdater.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="12" selection-start="627" selection-end="627" vertical-scroll-proportion="0.39115646">
+            <state line="23" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="-14.375">
               <folding>
                 <element signature="e#54#90#0" expanded="true" />
               </folding>
@@ -207,10 +205,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="film.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="film.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="1" selection-start="1268" selection-end="1268" vertical-scroll-proportion="0.0">
+            <state line="79" column="18" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.7615894">
               <folding />
             </state>
           </provider>
@@ -251,7 +249,6 @@
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadCategoryData.php" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/views/Film/show.html.twig" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Controller/CategoryController.php" />
-        <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/views/Category/list.html.twig" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Controller/FilmController.php" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/views/Film/index.html.twig" />
@@ -262,6 +259,7 @@
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadFilmData.php" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/DataFixtures/ORM/LoadCommentData.php" />
         <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/EventListener/FilmRatingUpdater.php" />
+        <option value="$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css" />
       </list>
     </option>
   </component>
@@ -367,6 +365,96 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="FilmzBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Andboson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FilmzBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Andboson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FilmzBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="filmz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Andboson" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FilmzBundle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -606,13 +694,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/views/Film/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="875" selection-end="959" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="30" selection-start="859" selection-end="859" vertical-scroll-proportion="-15.0">
@@ -715,10 +796,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/EventListener/FilmRatingUpdater.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="12" selection-start="627" selection-end="627" vertical-scroll-proportion="0.39115646">
+        <state line="23" column="0" selection-start="615" selection-end="615" vertical-scroll-proportion="-14.375">
           <folding>
             <element signature="e#54#90#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Andboson/FilmzBundle/Resources/public/css/film.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="18" selection-start="1081" selection-end="1081" vertical-scroll-proportion="0.7615894">
+          <folding />
         </state>
       </provider>
     </entry>
