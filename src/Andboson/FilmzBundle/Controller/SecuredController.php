@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\DemoBundle\Controller;
+namespace Andboson\FilmzBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
@@ -8,13 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-/**
- * @Route("/demo/secured")
- */
+
 class SecuredController extends Controller
 {
     /**
-     * @Route("/login", name="_demo_login")
      * @Template()
      */
     public function loginAction(Request $request)
@@ -32,7 +29,6 @@ class SecuredController extends Controller
     }
 
     /**
-     * @Route("/login_check", name="_security_check")
      */
     public function securityCheckAction()
     {
@@ -40,29 +36,10 @@ class SecuredController extends Controller
     }
 
     /**
-     * @Route("/logout", name="_demo_logout")
      */
     public function logoutAction()
     {
         // The security layer will intercept this request
     }
 
-    /**
-     * @Route("/hello", defaults={"name"="World"}),
-     * @Route("/hello/{name}", name="_demo_secured_hello")
-     * @Template()
-     */
-    public function helloAction($name)
-    {
-        return array('name' => $name);
-    }
-
-    /**
-     * @Route("/hello/admin/{name}", name="_demo_secured_hello_admin")
-     * @Template()
-     */
-    public function helloadminAction($name)
-    {
-        return array('name' => $name);
-    }
 }

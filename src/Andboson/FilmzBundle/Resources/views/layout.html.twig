@@ -31,6 +31,11 @@
                     <li><a href="{{ path('genre_new') }}">Добавить жанр</a></li>
                 {% endblock %}
                 </ul>
+                <ul>
+                    {% if app.user is not null  %}
+                        <li><a href="{{ path('logout') }}">Logout</a>
+                    {% endif %}
+                </ul>
             </div>
         </div>
 

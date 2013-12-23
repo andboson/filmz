@@ -15,3 +15,15 @@ AndbosonFilmzBundle_comment:
         prefix:   /comment
 
 
+_login:
+    pattern:  /login
+    defaults: { _controller: "AndbosonFilmzBundle:Secured:login" }
+
+_security_check:
+    pattern:   (new|edit)
+    defaults: { _controller: "AndbosonFilmzBundle:Secured:securityCheck" }
+
+logout:
+    path: /logout
+    defaults: { _controller: "AndbosonFilmzBundle:Secured:logout" }
+

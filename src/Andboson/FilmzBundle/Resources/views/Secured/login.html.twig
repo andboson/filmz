@@ -1,0 +1,30 @@
+{% extends 'AndbosonFilmzBundle::layout.html.twig' %}
+
+{% block content %}
+    <h1 class="title">Login</h1>
+
+    <p>
+        <em>admin/adminpass</em>
+    </p>
+
+    {% if error %}
+        <div class="error">{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path("_security_check") }}" method="post" id="login" class="pure-form">
+        <div>
+            <label for="username">Имя</label>
+            <input type="text" id="username" name="_username" value="{{ last_username }}" />
+        </div>
+
+        <div>
+            <label for="password">Пароль</label>
+            <input type="password" id="password" name="_password" />
+        </div>
+
+        <div>
+            <br/>
+            <input type="submit" class="pure-button pure-button-primary" value="Войти"/>
+        </div>
+    </form>
+{% endblock %}

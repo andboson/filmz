@@ -92,3 +92,18 @@ blockquote.content-quote{
 .pure-menu li a {
     padding: 5px 20px;
 }
+
+form#login div{
+    clear: both;
+    width: 250px;
+    padding-bottom: 5px;
+}
+
+form#login label{
+    float: left;
+}
+
+form#login input {
+    float: right;
+}
+
