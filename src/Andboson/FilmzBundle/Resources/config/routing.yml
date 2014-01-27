@@ -14,16 +14,16 @@ AndbosonFilmzBundle_comment:
         resource: "@AndbosonFilmzBundle/Resources/config/routing/comments.yml"
         prefix:   /comment
 
-
-_login:
-    pattern:  /login
-    defaults: { _controller: "AndbosonFilmzBundle:Secured:login" }
-
-_security_check:
-    pattern:   (new|edit)
-    defaults: { _controller: "AndbosonFilmzBundle:Secured:securityCheck" }
-
-logout:
-    path: /logout
-    defaults: { _controller: "AndbosonFilmzBundle:Secured:logout" }
+#
+#_login:
+#    pattern:  /login
+#    defaults: { _controller: "AndbosonFilmzBundle:Secured:login" }
+#
+#_security_check:
+#    pattern:   (new|edit)
+#    defaults: { _controller: "AndbosonFilmzBundle:Secured:securityCheck" }
+#
+#logout:
+#    path: /logout
+#    defaults: { _controller: "AndbosonFilmzBundle:Secured:logout" }
 

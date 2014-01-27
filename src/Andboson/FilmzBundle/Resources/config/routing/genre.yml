@@ -7,7 +7,7 @@ genre_show:
     defaults: { _controller: "AndbosonFilmzBundle:Genre:show" }
 
 genre_new:
-    pattern:  /new
+    pattern:  /admin/new
     defaults: { _controller: "AndbosonFilmzBundle:Genre:new" }
 
 genre_create:
@@ -16,7 +16,7 @@ genre_create:
     requirements: { _method: post }
 
 genre_edit:
-    pattern:  /{id}/edit
+    pattern:  /admin/{id}/edit
     defaults: { _controller: "AndbosonFilmzBundle:Genre:edit" }
 
 genre_update:

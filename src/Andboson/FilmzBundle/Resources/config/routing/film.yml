@@ -7,7 +7,7 @@ films_show:
     defaults: { _controller: "AndbosonFilmzBundle:Film:show" }
 
 films_new:
-    pattern:  /new
+    pattern:  /admin/new
     defaults: { _controller: "AndbosonFilmzBundle:Film:new" }
 
 films_create:
@@ -16,7 +16,7 @@ films_create:
     requirements: { _method: post }
 
 films_edit:
-    pattern:  /{id}/edit
+    pattern:  /admin/{id}/edit
     defaults: { _controller: "AndbosonFilmzBundle:Film:edit" }
 
 films_update:

@@ -57,6 +57,8 @@ class FilmRepository extends EntityRepository
             WHERE g.slug = :gslug AND c.slug = :slug'
             )->setParameters(Array('slug' => $slug, 'gslug' => $gslug ));
         try {
+            $t = $query->getSingleResult();
+            print_r( $t.category.na);
             return $query->getArrayResult();
         } catch (\Doctrine\ORM\NoResultException $e) {
             return null;
