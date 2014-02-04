@@ -27,3 +27,9 @@ logout:
     path: /logout
     defaults: { _controller: "AndbosonFilmzBundle:Secured:logout" }
 
+fos_facebook_channel:
+    resource: "@FOSFacebookBundle/Resources/config/routing.xml"
+
+_facebook_secured:
+    pattern: /category/serial/
+    defaults: { _controller: AcmeDemoBundle:Welcome:index }

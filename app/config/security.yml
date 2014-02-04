@@ -17,7 +17,13 @@ security:
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
+        public:
+            # since anonymous is allowed users will not be forced to login
+            pattern:   ^/.*
+            fos_facebook:
+                app_url: "http://apps.facebook.com/appName/"
+                server_url: "http://localhost/facebookApp/"
+            anonymous: true
         login:
             pattern:  ^/login$
             security: false
@@ -37,7 +43,6 @@ security:
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"
-
     access_control:
         - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

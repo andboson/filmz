@@ -5,4 +5,3 @@ andboson_rate:
 andboson_filmz:
     resource: "@AndbosonFilmzBundle/Resources/config/routing.yml"
     prefix:   /
-
