@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Andboson\FilmzBundle\AndbosonFilmzBundle(),
             new Andboson\RateBundle\AndbosonRateBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
             new FOS\FacebookBundle\FOSFacebookBundle(),
         );
 

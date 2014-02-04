@@ -30,7 +30,14 @@ security:
 
         secured_area:
             pattern:    (new|edit|logout)
+        main:
+            pattern: ^/
             form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+            logout:       true
+            anonymous:    true
+
                 check_path: _security_check
                 login_path: _login
             logout:

@@ -83,3 +83,8 @@ fos_facebook:
     secret: aee15ba2b29b5ce6e6b4d455accc8b25
     cookie: true
     permissions: [email, user_birthday, user_location]
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: Andboson\FilmzBundle\Entity\User

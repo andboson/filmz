@@ -33,7 +33,7 @@
                 </ul>
                 <ul>
                     {% if app.user is not null  %}
-                        <li><a href="{{ path('logout') }}">Logout</a>
+                        <li><a href="/logout">Logout</a>
                     {% endif %}
                 </ul>
             </div>
@@ -51,7 +51,32 @@
                         <em>Notice</em>: {{ flashMessage }}
                     </div>
                 {% endfor %}
-                {% block content %}{% endblock %}
+                {% block content %}
+                    {% block fos_user_content_cust %}
+                        {% if error %}
+                            <div>{{ error|trans }}</div>
+                        {% endif %}
+<br>
+                    <form action="{{ path("fos_user_security_check") }}" method="post" class="pure-form new-film">
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<div>
+                        <label for="username">Логин</label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+</div>
+<div>
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="_password" required="required" />
+</div>
+<div>
+                        <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                        <label for="remember_me">Запомнить</label>
+</div>
+                        <div>
+                        <input type="submit" id="_submit" name="_submit" value="Войти" />
+                       </div>
+                        </form>
+                    {% endblock %}
+                {% endblock %}
             </div>
         </div>
     </div>

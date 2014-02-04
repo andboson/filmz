@@ -7,7 +7,7 @@ cat_show:
     defaults: { _controller: "AndbosonFilmzBundle:Category:show" }
 
 cat_new:
-    pattern:  /new
+    pattern:  /admin/new
     defaults: { _controller: "AndbosonFilmzBundle:Category:new" }
 
 cat_create:
@@ -16,7 +16,7 @@ cat_create:
     requirements: { _method: post }
 
 cat_edit:
-    pattern:  /{id}/edit
+    pattern:  /admin/{id}/edit
     defaults: { _controller: "AndbosonFilmzBundle:Category:edit" }
 
 cat_update:
