@@ -79,8 +79,8 @@ swiftmailer:
 
 fos_facebook:
     alias:  facebook
-    app_id: 495291617160040
-    secret: aee15ba2b29b5ce6e6b4d455accc8b25
+    app_id: 221008077937894
+    secret: aef5a2370cea9e1c1d9922793868b6cb
     cookie: true
     permissions: [email, user_birthday, user_location]
 
